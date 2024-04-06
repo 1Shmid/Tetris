@@ -8,6 +8,7 @@ package main;
  * @author 1Shmid
  * @version 1.0
  */
+
 public enum CoordMask {
     I_FORM(
             new GenerationDelegate() {
