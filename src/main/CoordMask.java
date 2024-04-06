@@ -137,6 +137,112 @@ public enum CoordMask {
             }
     ),
 
+    /* Кирпичик   [][]
+     *          [][]
+     */
+    S_FORM(
+            new GenerationDelegate() {
+                @Override
+                public Coord[] generateFigure(Coord initialCoord, RotationMode rotation) {
+                    Coord[] ret = new Coord[4];
+
+                    switch (rotation){
+                        case NORMAL:
+                        case INVERT:
+                            ret[0] = new Coord(initialCoord.x , initialCoord.y - 1);
+                            ret[1] = new Coord(initialCoord.x + 1 , initialCoord.y - 1);
+                            ret[2] = new Coord(initialCoord.x + 1, initialCoord.y);
+                            ret[3] = new Coord(initialCoord.x + 2, initialCoord.y);
+                            break;
+                        case FLIP_CCW:
+                        case FLIP_CW:
+                            ret[0] = initialCoord;
+                            ret[1] = new Coord(initialCoord.x, initialCoord.y - 1);
+                            ret[2] = new Coord(initialCoord.x + 1, initialCoord.y - 1);
+                            ret[3] = new Coord(initialCoord.x + 1, initialCoord.y - 2);
+                            break;
+                        default:
+                            ErrorCatcher.wrongParameter("rotation", "CoordMask");
+                    }
+
+                    return ret;
+                }
+            }
+    ),
+    /* Кирпичик [][]
+     *            [][]
+     */
+    Z_FORM(
+            new GenerationDelegate() {
+                @Override
+                public Coord[] generateFigure(Coord initialCoord, RotationMode rotation) {
+                    Coord[] ret = new Coord[4];
+
+                    switch (rotation){
+                        case NORMAL:
+                        case INVERT:
+                            ret[0] = initialCoord;
+                            ret[1] = new Coord(initialCoord.x + 1 , initialCoord.y);
+                            ret[2] = new Coord(initialCoord.x + 1, initialCoord.y - 1);
+                            ret[3] = new Coord(initialCoord.x + 2, initialCoord.y - 1);
+                            break;
+                        case FLIP_CCW:
+                        case FLIP_CW:
+                            ret[0] = new Coord(initialCoord.x + 1, initialCoord.y);
+                            ret[1] = new Coord(initialCoord.x + 1, initialCoord.y - 1);
+                            ret[2] = new Coord(initialCoord.x, initialCoord.y - 1);
+                            ret[3] = new Coord(initialCoord.x, initialCoord.y - 2);
+                            break;
+                        default:
+                            ErrorCatcher.wrongParameter("rotation", "CoordMask");
+                    }
+
+                    return ret;
+                }
+            }
+    ),
+    /* Кирпичик [][][]
+     *            []
+     */
+    T_FORM(
+            new GenerationDelegate() {
+                @Override
+                public Coord[] generateFigure(Coord initialCoord, RotationMode rotation) {
+                    Coord[] ret = new Coord[4];
+
+                    switch (rotation){
+                        case NORMAL:
+                            ret[0] = initialCoord;
+                            ret[1] = new Coord(initialCoord.x + 1, initialCoord.y);
+                            ret[2] = new Coord(initialCoord.x + 1, initialCoord.y - 1);
+                            ret[3] = new Coord(initialCoord.x + 2, initialCoord.y);
+                            break;
+                        case INVERT:
+                            ret[0] = new Coord(initialCoord.x, initialCoord.y - 1);
+                            ret[1] = new Coord(initialCoord.x + 1, initialCoord.y - 1);
+                            ret[2] = new Coord(initialCoord.x + 1, initialCoord.y);
+                            ret[3] = new Coord(initialCoord.x + 2, initialCoord.y - 1);
+                            break;
+                        case FLIP_CCW:
+                            ret[0] = initialCoord;;
+                            ret[1] = new Coord(initialCoord.x, initialCoord.y - 1);
+                            ret[2] = new Coord(initialCoord.x + 1, initialCoord.y - 1);
+                            ret[3] = new Coord(initialCoord.x, initialCoord.y - 2);
+                            break;
+                        case FLIP_CW:
+                            ret[0] = new Coord(initialCoord.x + 1, initialCoord.y);
+                            ret[1] = new Coord(initialCoord.x + 1, initialCoord.y - 1);
+                            ret[2] = new Coord(initialCoord.x, initialCoord.y - 1);
+                            ret[3] = new Coord(initialCoord.x + 1, initialCoord.y - 2);
+                            break;
+                        default:
+                            ErrorCatcher.wrongParameter("rotation", "CoordMask");
+                    }
+
+                    return ret;
+                }
+            }
+    );
 
 
     /**
