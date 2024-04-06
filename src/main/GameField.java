@@ -1,3 +1,4 @@
+package main;
 /**
  * Хранит информацию о поле и о падающей фигуре.
  * Содержит методы для их обновления, и получения о них информации.
@@ -5,6 +6,16 @@
  * @author 1Shmid
  * @version 1.0
  */
+
+
+
+import main.graphics.*;
+
+
+import java.util.*;
+
+import static main.Constants.*;
+
 public class GameField {
 
     /**  Цвета ячеек поля. Для пустых ячеек используется константа EMPTINESS_COLOR */
@@ -25,13 +36,13 @@ public class GameField {
     public GameField(){
         spawnNewFigure();
 
-        theField = new TpReadableColor[COUNT_CELLS_X][COUNT_CELLS_Y+OFFSET_TOP];
+        theField = new TpReadableColor[Constants.COUNT_CELLS_X][COUNT_CELLS_Y+OFFSET_TOP];
         countFilledCellsInLine = new int[COUNT_CELLS_Y+OFFSET_TOP];
 
         Random rnd = new Random();
 
         /* До определённого уровня создаём начальные блоки с пустотами в каждой линии */
-        for(int y = 0; y < BLOCKS_INITIAL_LEVEL; y++){
+        for(int y = 0; y < Constants.BLOCKS_INITIAL_LEVEL; y++){
 
             /* Количество пустых блоков в линии */
             int missingBlocksCount = MISSNG_BLOCKS_IN_INITIAL_LINE_MIN
