@@ -1,4 +1,4 @@
-package lwjglmodule;
+package graphics;
 
 public interface GraphicsModule {
 
