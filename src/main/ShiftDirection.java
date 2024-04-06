@@ -1,4 +1,18 @@
 package main;
 
-public class ShiftDirection {
+/**
+ * Хранит все возможные формы запросов на сдвиг фигуры в бок.
+ *
+ * @author DoKel
+ * @version 1.0
+ */
+public enum ShiftDirection {
+    /** Направление не определено (сдвиг не требуется)*/
+    AWAITING,
+
+    /** Требуется сдвиг влево*/
+    LEFT,
+
+    /** Требуется сдвиг вправо*/
+    RIGHT;
 }
