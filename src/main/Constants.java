@@ -1,3 +1,7 @@
+package main;
+
+import main.graphics.*;
+
 /**
  * Хранит ключевые для игры константы в public static final полях
  *
@@ -21,7 +25,7 @@ public class Constants {
     /* Параметры окна */
     public static final int SCREEN_WIDTH = COUNT_CELLS_X *CELL_SIZE;
     public static final int SCREEN_HEIGHT = COUNT_CELLS_Y *CELL_SIZE;
-    public static final String SCREEN_NAME = "Tproger's Tetris";
+    public static final String SCREEN_NAME = "Tproger's main.Tetris";
 
     /* Количество раз, в которое увеличивается скорость падения,
      * если пользователь нажал соответсвующую клавишу
